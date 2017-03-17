@@ -1,17 +1,11 @@
 # Deacons Meeting
 #### February 13th 2017
 
-### Deacons Present
+**Deacons Present:**Chuck Kearse, Steve Jackson, James Huggins, Bert Craft, Matthew Rikard, Lucky McDade, Tommy Simpson, David Jones
 
-Chuck Kearse, Matt Barr, Steve Jackson, James Huggins, Bert Craft, Matthew Rikard, Lucky McDade, Tommy Simpson, David Jones
+**Deacons Absent:**Timmy French, Waring Richardson
 
-### Deacons Absent
-
-Timmy French, Waring Richardson
-
-### Staff Present
-
-Johnny Muller, Leon Boss
+**Staff Present:**Johnny Muller, Matt Barr, Leon Boss
 
 | Time | Event                                   |
 |------|-----------------------------------------|
@@ -29,8 +23,8 @@ Johnny Muller, Leon Boss
 
 ## New Business
 
-* Matt Barr's last official day is Thursday Feb. 16th.
-* Valentines banquet went well there were about 45 people.
+* Matt Barr's last official day in the office is Thursday Feb. 16th.
+* Valentines banquet went well there were about 90 people.
 * "Living Last Supper" coming up for Easter.
 
 ## Pastor's Time
