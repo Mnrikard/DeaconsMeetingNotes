@@ -3,8 +3,8 @@ import time
 import sys
 
 class noter:
-	deacons = ["Chuck Kearse", "Steve Jackson", "James Huggins", "Bert Craft", "Matthew Rikard", "Lucky McDade", "Tommy Simpson", "David Jones", "Timmy French", "Waring Richardson"]
-	staff = ["Matt Barr","Johnny Muller","Leon Boss"]
+        deaconFile = "/home/rugg/deacons"
+        staffFile = "/home/rugg/churchStaff"
 
 	template = """# Deacons Meeting
 #### tttttt
@@ -24,7 +24,6 @@ _newBusinessGoesHere_
 
 _pastorsTimeGoesHere_
 """
-
 	def getMeetingDate(self):
 		localtime   = time.localtime()
 		timeString  = time.strftime("%b %d, %Y", localtime)
@@ -32,13 +31,15 @@ _pastorsTimeGoesHere_
 		promptedTime = sys.stdin.readline()
 		if(promptedTime.strip() != ""):
 			timeString = promptedTime
-		print("time:"+timeString+"XXXXXXXXXXXXXXXXXXX")
 		return timeString
 
-	def getSpecificAttendance(self, arr, arrName):
+	def getSpecificAttendance(self, arrFile, arrName):
 		output = "**"+arrName+" Present:**"
 		absent = []
 		present = []
+
+                attendees = open(arrFile,"r")
+                arr = attendees.readlines()
 
 		for d in arr:
 			print(d+"[Yn]:")
@@ -56,7 +57,7 @@ _pastorsTimeGoesHere_
 		return output
 
 	def getAttendance(self):
-		return self.getSpecificAttendance(self.deacons, "Deacons") + self.getSpecificAttendance(self.staff, "Staff")
+		return self.getSpecificAttendance(self.deaconFile, "Deacons") + self.getSpecificAttendance(self.staffFile, "Staff")
 
 	def getMinutes(self):
 		print("When was the meeting called to order?")
@@ -88,12 +89,28 @@ _pastorsTimeGoesHere_
 | """+benediction+""" | Benediction                             |
 """
 
+def getYear(time):
+	import re
+	return re.search("\d{4}", time).group(0)
+
+def getMonth(time):
+	import re
+	return re.search("\w+", time).group(0)
+
 if __name__ == "__main__":
 	n = noter()
 	output = n.template
-	output = output.replace("tttttt",n.getMeetingDate())
+	time = n.getMeetingDate()
+	output = output.replace("tttttt",time)
 	output = output.replace("***attendance***",n.getAttendance())
 	output = output.replace("mmmmmm", n.getMinutes())
-	print(output)
+	
+	outfile = "archivedNotes/"+getYear(time)+"/"+getMonth(time)+".md"
+	f = open(outfile,"w")
+	f.write(output)
+	f.close()
+
+	print(outfile)
+
 
 
